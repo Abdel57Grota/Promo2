@@ -86,7 +86,7 @@
             <label>Bouteilles Gratuites</label>
                     <div class="input-group input-group-lg">
                       <select  class="form-control" id="Bofferte">
-			<option value="0">0</option>
+                        <option value="6">0</option>
                         <option value="6">6</option>
                         <option value="12">12</option>
                         <option value="18">18</option>
@@ -137,6 +137,14 @@
             </div>
           </div>
 
+          <div class="form-group col-xs-6 col-md-4">
+            <label>Chéque Cadeau</label>
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" id="cheque" >
+              <div class="input-group-addon">&euro;</div>
+            </div>
+          </div>
+
 
 
         </div> 
@@ -144,7 +152,7 @@
           <button type="button" class="btn btn-default btn-lg" onclick="promo();"><i class="fa fa-calculator"></i> Calculer</button>
         </div>
         </form>
-       <br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br>
       <div class="panel panel-default">
           <div class="panel-heading">
           <h3 class="panel-title">Résultat</h3>
@@ -186,6 +194,8 @@ function promo(){
          var  zone=Number(document.getElementById('zone').value) ;
          var  nbrV=Number(document.getElementById('Nbvente').value) ;
          var ads=Number(document.getElementById('ads').value) ;
+         var cheque=Number(document.getElementById('cheque').value) ;
+
          var ok1= SoldeB + Bofferte ;
          var prix_Nbr=0;
 
@@ -369,10 +379,10 @@ switch(zone)
         var ok3 = ok2 + prix_Nbr ;
         var ok4= prix_vente * SoldeB ;
         var marge= ( ok4-ok3) * nbrV ; 
-        var margeAds=marge - ads;
+        var margeAds=marge - ads - cheque;
         var marque = ( margeAds/(prix_vente * nbrV * SoldeB) )*100;
 
-        var CA=ok4*nbrV;
+        var CA=(ok4*nbrV) - cheque;
         var coutdetransport =prix_Nbr * nbrV;
         var coutdestock= ok2 * nbrV ;
         var SoldeB1=SoldeB * nbrV;
