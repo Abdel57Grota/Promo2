@@ -111,7 +111,7 @@
             <label>Bouteilles Gratuites</label>
                     <div class="input-group input-group-lg">
                       <select  class="form-control" id="Bofferte">
-			<option value="0">0</option>
+                        <option value="6">0</option>
                         <option value="6">6</option>
                         <option value="12">12</option>
                         <option value="18">18</option>
@@ -162,6 +162,14 @@
             </div>
           </div>
 
+          <div class="form-group col-xs-6 col-md-4">
+            <label>Chéque Cadeau</label>
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" id="cheque" >
+              <div class="input-group-addon">&euro;</div>
+            </div>
+          </div>
+
 
         </div> 
         <div class="form-group col-xs-12">
@@ -207,6 +215,7 @@ function promo(){
          var  zone=Number(document.getElementById('zone').value) ;
          var  nbrV=Number(document.getElementById('Nbvente').value) ;
          var ads=Number(document.getElementById('ads').value) ;
+         var cheque=Number(document.getElementById('cheque').value) ;
          var ok1= SoldeB + Bofferte ;
          var prix_Nbr=0;
          var y = 0;
@@ -394,10 +403,10 @@ switch(zone)
         var marge= ( ok4-ok3) * nbrV ; 
 
 
-        var margeAds=marge - ads;
+        var margeAds=marge - ads - cheque;
         var marque = ( margeAds/(prix_vente * nbrV * SoldeB) )*100;
 
-        var CA=ok4*nbrV;
+        var CA=(ok4*nbrV)-cheque;
         var coutdetransport =prix_Nbr * nbrV;
         var coutdestock= coutr * nbrV ;
         var SoldeB1=SoldeB * nbrV;
@@ -416,7 +425,7 @@ switch(zone)
           <td>${nbbouteille} bouteilles</td>
           <td>${coutdestock.toFixed(2)} €</td>
           <td>${(coutdetransport.toFixed(2)) } €</td>
-          <td>${( marge.toFixed(2)) * nbrV } €</td>
+          <td>${( margeAds.toFixed(2)) * nbrV } €</td>
           <td>${ marque.toFixed(2)} %</td>
 
         </tr>
