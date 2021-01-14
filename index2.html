@@ -401,7 +401,7 @@ function promo(){
       var   CA= ( ( prix_vente * Bouteilles_a_vendre) * Nombre_vente ) - cheque ;
       var cout_stock =  ( Bouteilles_offertes * prix_achat ) + (Bouteilles_a_vendre * prix_achat_offre );
       var cout_transport = frais_zone * Nombre_vente ;
-      var charge = cout_stock +  cout_transport + ads + cheque;
+      var charge = cout_stock +  cout_transport + ads ;
       var marge = CA - charge ;
       var marque = ( marge / CA) * 100 ;
       document.getElementById('marge').innerHTML = marge.toFixed(2);
