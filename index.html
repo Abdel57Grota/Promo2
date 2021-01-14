@@ -379,7 +379,7 @@ switch(zone)
     break;
   } 
        
-        var CA=(prix_vente * Bouteilles_a_vendre) * Nombre_vente ;
+       var CA=((prix_vente * Bouteilles_a_vendre) * Nombre_vente) - cheque ;
         var cout_stock = ( Total_bouteilles * prix_achat ) * Nombre_vente ;
         var cout_transport = frais_zone * Nombre_vente ;
         var charge = cout_stock +  cout_transport + ads + cheque;
