@@ -385,16 +385,20 @@ switch(zone)
         var charge = cout_stock +  cout_transport + ads ;
         var marge = CA - charge ;
         var marque = ( marge / CA) * 100 ;
+	
+	 var sBouteilles_a_vendre=Bouteilles_a_vendre*Nombre_vente;
+        var sBouteilles_offertes=Bouteilles_offertes*Nombre_vente;
+        var sTotal_bouteilles=Total_bouteilles*Nombre_vente;
         document.getElementById('marge').innerHTML = marge.toFixed(2);
      
 
          let information='';
        information += ` 
          <tr>
-            <td>${Bouteilles_a_vendre} bouteilles</td>
-             <td>${Bouteilles_offertes} bouteilles</td>
+            <td>${sBouteilles_a_vendre} bouteilles</td>
+             <td>${sBouteilles_offertes} bouteilles</td>
              <td>${CA.toFixed(2)} €</td>
-             <td>${Total_bouteilles} bouteilles</td>
+             <td>${sTotal_bouteilles} bouteilles</td>
              <td>${cout_stock.toFixed(2)} €</td>
              <td>${cout_transport.toFixed(2)} €</td>
             <td>${ marge.toFixed(2)} €</td>
