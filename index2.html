@@ -398,7 +398,7 @@ function promo(){
     break;
   } 
       
-      var   CA= ( prix_vente * Bouteilles_a_vendre) * Nombre_vente ;
+      var   CA= ( ( prix_vente * Bouteilles_a_vendre) * Nombre_vente ) - cheque ;
       var cout_stock =  ( Bouteilles_offertes * prix_achat ) + (Bouteilles_a_vendre * prix_achat_offre );
       var cout_transport = frais_zone * Nombre_vente ;
       var charge = cout_stock +  cout_transport + ads + cheque;
