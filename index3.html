@@ -66,16 +66,21 @@
             </div>           
           </div>
          
-          <div class="form-group col-xs-6 col-md-4">
-            <label>Nbrs Bouteilles</label>
+         <div class="form-group col-md-4">
+          <label>Nbrs Bouteilles</label>
+            <div class="input-group input-group-lg">
+            
             <div class="input-group input-group-lg">
               <input type="text" class="form-control" id="Nbrs_Bouteilles" >
               <div class="input-group-addon">NBr</div>
             </div>
           </div> 
+        </div>
         
-          <div class="form-group col-xs-6 col-md-4">
+        <div class="form-group col-md-4">
             <label>Frais de Transport1</label>
+              <div class="input-group input-group-lg">
+            
             <div class="input-group input-group-lg">
               <select class="form-control" id="zone">
                 <option value="0" selected>-- choisissez une Zone</option>
@@ -93,6 +98,7 @@
               <div class="input-group-addon">&euro;</div>
             </div>
           </div> 
+        </div> 
 
 
         </div> 
@@ -121,6 +127,7 @@
             <th>Nbrs de Bouteilles </th>
             <th>Frais de Transport</th>
             <th>Totale</th>
+            <th>Marge</th>
           </tr>
       </thead>
       <tbody id="details">
@@ -377,8 +384,11 @@ switch(prix_achat)
       
       var somme= ( prix_vente * Nbrs_Bouteilles ) +  frais_zone ;
       document.getElementById('somme').innerHTML = somme.toFixed(2);
-    
-      
+       
+      var  x = prix_achat * Nbrs_Bouteilles ;
+
+      var marge = somme - x ;
+       
 
 
 
@@ -391,12 +401,15 @@ var cel3 = newRow.insertCell(2);
 var cel4 = newRow.insertCell(3);
 var cel5 = newRow.insertCell(4);
 var cel6 = newRow.insertCell(5);
+var cel7 = newRow.insertCell(6);
+
 cel1.innerHTML = produit ;
 cel2.innerHTML = prix_achat.toFixed(2) ;
 cel3.innerHTML = prix_vente.toFixed(2);
 cel4.innerHTML = Nbrs_Bouteilles;
 cel5.innerHTML = frais_zone.toFixed(2);
 cel6.innerHTML = somme.toFixed(2);
+cel7.innerHTML = marge.toFixed(2);
 
 
 }
