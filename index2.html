@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calcul mensualité crédit (taux fixe)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="static/css/bootstrap-3.3.1.min.css" rel="stylesheet">
+    <link href="static/css/font-awesome-4.4.0.min.css" rel="stylesheet">
+    <link href="static/css/custom.css" rel="stylesheet"> 
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href=""><i class="fa fa-calculator"></i> Promo</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href=""> <i class="fa fa-home"></i> Promo Produits Similaires</a></li>
+            <li><a href="index2.html"><i class="fa fa-github-alt"></i> Promo De Différents Produits</a></li>
+            <li><a href="index3.html"><i class="fa fa-github-alt"></i> Calculatrice Pros</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="hidden-xs col-md-12">
+          <h2 class="baseline">Calcul Promo Pavillion Sala</h2>
+          <hr>
+        </div>
+      </div>
+      <form id="calculator-form">
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Prix D'achat ( ce qu'on va offrir )</label>
+            <div class="input-group input-group-lg">
+              <select class="form-control" id="prix_achat">
+                <optgroup label="Vin Rouge">
+                    <option value="2.07">Bordeaux</option>
+                    <option value="2.63">Bordeaux supérieur</option>
+                    <option value="4.15">Bordeaux - Réserve</option>
+                    <option value="7.55">St. Emilion Grand Cru</option>
+                    <option value="13.04">Grand Cru Prestige</option>
+                  </optgroup>
+                  <optgroup label="Vin Blanc">
+                    <option value="2.01">Entre-Deux-Mers</option>
+                    <option value="2.03">Bordeaux Sauvignon</option>
+                    <option value="6.87">Bordeaux supérieur</option>                   
+                  </optgroup>
+                  <optgroup label="Vins Rosé">
+                    <option value="2.02">Bordeaux Rosé</option>
+                  </optgroup>
+              </select>
+              <div class="input-group-addon">&euro;</div>
+            </div>           
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Prix De Vente ( ce qu'on va vendre )</label>
+            <div class="input-group input-group-lg">
+              <select class="form-control" id="prix_vente">
+                <optgroup label="Vin Rouge">
+                    <option value="5.42">Bordeaux</option>
+                    <option value="7.13">Bordeaux supérieur</option>
+                    <option value="10.79">Bordeaux - Réserve</option>
+                    <option value="23.33">St. Emilion Grand Cru</option>
+                    <option value="37.50">Grand Cru Prestige</option>
+                  </optgroup>
+                  <optgroup label="Vin Blanc">
+                    <option value="5.42">Entre-Deux-Mers</option>
+                    <option value="5.88">Bordeaux Sauvignon</option>
+                    <option value="13.75">Bordeaux supérieur</option>                   
+                  </optgroup>
+                  <optgroup label="Vins Rosé">
+                    <option value="5.42">Bordeaux Rosé</option>
+                  </optgroup>
+              </select>
+              <div class="input-group-addon">&euro;</div>
+            </div>           
+          </div>
+
+         
+          <div class="form-group col-md-4">
+            <label>Solde</label>
+                    <div class="input-group input-group-lg">
+                      <select  class="form-control" id="Bouteilles_a_vendre">
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                        <option value="18">30</option>
+                        <option value="24">36</option>
+                        <option value="18">42</option>
+                        <option value="24">48</option>
+                        <option value="24">54</option>
+                       </select>
+                     <div class="input-group-addon">Nbr</div>
+                    </div>
+                  </div>
+          <div class="form-group col-md-4">
+            <label>Bouteilles Gratuites</label>
+                    <div class="input-group input-group-lg">
+                      <select  class="form-control" id="Bouteilles_offertes">
+                        <option value="0">0</option>
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                        <option value="18">30</option>
+                        <option value="24">36</option>
+                        <option value="18">42</option>
+                        <option value="24">48</option>
+                        <option value="24">54</option>
+                    </select>
+                    <div class="input-group-addon">Nbr</div>
+                     </div>
+            </div>
+                <div class="form-group col-xs-6 col-md-4">
+                  <label>Frais de Transport1</label>
+                  <div class="input-group input-group-lg">
+                    <select class="form-control" id="zone">
+                      <option value="0" selected>-- choisissez une Zone</option>
+                      <option value="1">Zone01</option>
+                      <option value="2">Zone02</option>
+                      <option value="3">Zone03</option>
+                      <option value="4">Zone04</option>
+                      <option value="5">Zone05</option>
+                      <option value="6">Zone06</option>
+                      <option value="7">Zone07</option>
+                      <option value="8">Zone08</option>
+                      <option value="9">Zone09</option>
+                      <option value="10">ZoneRP</option>
+                      </select>
+                    <div class="input-group-addon">&euro;</div>
+                  </div>
+                </div> 
+
+
+          <div class="form-group col-xs-6 col-md-4">
+            <label>Nombre de vente</label>
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" id="Nombre_vente" >
+              <div class="input-group-addon">Nbr</div>
+            </div>
+          </div>
+
+          <div class="form-group col-xs-6 col-md-4">
+            <label>Adwords</label>
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" id="ads" >
+              <div class="input-group-addon">&euro;</div>
+            </div>
+          </div>
+
+          <div class="form-group col-xs-6 col-md-4">
+            <label>Chéque Cadeau</label>
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" id="cheque" >
+              <div class="input-group-addon">&euro;</div>
+            </div>
+          </div>
+
+
+        </div> 
+        <div class="form-group col-xs-12">
+          <button type="button" class="btn btn-default btn-lg" onclick="promo();"><i class="fa fa-calculator"></i> Calculer</button>
+        </div>
+        </form>
+       <br><br><br><br><br><br><br>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+          <h3 class="panel-title">Résultat</h3>
+          </div>
+          <div class="panel-body">
+          <p><b>Marge De Promotion:</b> <span id="marge"></span>&euro;</p> 
+        </div>
+      </div>
+      <div id="payementList">
+        <table class="table mt-3 text-center">
+            <thead>
+                <tr>
+                  <th>Solde</th>
+                  <th>Bouteilles offertes</th>
+                  <th>Chiffre d'affaire</th>
+                  <th>STock</th>
+                  <th>Coût de Stock</th>
+                  <th>Coût de Transport</th>
+                  <th>Marge</th>
+                  <th>Taux de Marque</th>
+                </tr>
+            </thead>
+            <!-- <tbody id="details">
+            </tbody> -->
+        </table>
+      </div>
+    </div> <!-- /container -->
+    <script src="static/js/jquery-1.11.0.min.js"></script>
+    <script src="static/js/bootstrap-3.3.1.min.js"></script>
+    <script>
+function promo(){
+      
+         var  prix_achat_offre=0;
+         var  frais_zone=0;
+         var  prix_achat=Number(document.getElementById('prix_achat').value);
+         var  prix_vente=Number(document.getElementById('prix_vente').value );
+         var  Bouteilles_a_vendre=Number(document.getElementById('Bouteilles_a_vendre').value);
+         var  Bouteilles_offertes=Number (document.getElementById('Bouteilles_offertes').value) ;
+         var  zone=Number(document.getElementById('zone').value) ;
+         var  ads=Number(document.getElementById('ads').value) ;
+         var  cheque=Number(document.getElementById('cheque').value) ;
+         var  Nombre_vente=Number(document.getElementById('Nombre_vente').value) ; 
+         var  Total_bouteilles= Bouteilles_a_vendre + Bouteilles_offertes ;
+
+
+ switch(prix_vente)
+	{
+		case 5.42:
+    prix_achat_offre =2.07;
+		break;
+		case 7.13:
+		prix_achat_offre = 2.63
+		break;
+		case 10.79:
+    prix_achat_offre = 4.15
+		break;
+		case 23.33:
+    prix_achat_offre = 7.55 
+		break;
+		case 37.50:
+    prix_achat_offre = 13.04
+    break;
+    case 5.42 :
+    prix_achat_offre = 2.01
+    break;
+    case 5.88:
+    prix_achat_offre = 2.03
+    break;
+    case 13.75 :
+    prix_achat_offre= 6.87
+    break;
+    case 5.42:
+    prix_achat_offre = 2.02
+    break;
+	}    
+
+  switch(zone)
+  {
+    case 1:
+   
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone=13.86}
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone=14.56 }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone=16.44 }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone=18.35}
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone=20.26 }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone=21.17 }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone=23.49 }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone=25.85 }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone=27.85 }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone=0.26 }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone=0.24 }
+    if ( Total_bouteilles>=300){ frais_zone = 0.23 }
+    break;
+    case 2:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone=18.74  }
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone=19.14 }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone=21.46 }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone=24.43 }
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone=27.42 }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone=30.24  }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone=33.48  }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone=33.48  }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone=40.74 }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone=0.38 }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone=0.35  }
+    if ( Total_bouteilles>=300){ frais_zone =0.34  }
+    break;
+    case 3:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone= 19.55  }
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone= 20.16  }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone=  23.54 }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone= 27.28 }
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone= 31.84  }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone= 34.49  }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone=38.81   }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone= 44.11  }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone= 48.28  }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone= 0.45 }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone=0.41   }
+    if ( Total_bouteilles>=300){ frais_zone =  0.40  }
+    break;
+    case 4:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone=  19.88 }
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone=21.21   }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone=24.30   }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone=28.28  }
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone= 32.27  }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone= 34.63  }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone=  39.14 }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone=  45.66 }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone=56.60   }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone=0.47  }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone= 0.45  }
+    if ( Total_bouteilles>=300){ frais_zone =  0.43  }
+    break;
+    case 5:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone= 20.30  }
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone=  22.10 }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone= 25.75  }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone= 30.33 }
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone= 34.92  }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone=  38.03 }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone=  43.99 }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone= 51.07  }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone= 56.60  }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone= 0.53 }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone= 0.49  }
+    if ( Total_bouteilles>=300){ frais_zone = 0.48   }
+    break;
+    case 6:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone=20.59}
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone=22.54}
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone=26.17}
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone=30.78}
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone= 35.36}
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone=39.35}
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone= 45.64}
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone=52.42}
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone=57.43}
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone=0.53}
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone=0.50}
+    if ( Total_bouteilles>=300){ frais_zone = 0.48}
+    break;
+    case 7:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone= 21.36  }
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone= 23.27  }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone= 26.79  }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone= 31.49 }
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone= 35.36  }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone=39.55   }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone= 45.85  }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone= 52.47  }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone= 57.54  }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone= 0.54 }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone= 0.50  }
+    if ( Total_bouteilles>=300){ frais_zone = 0.49   }
+    break;
+    case 8:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone=22.22   }
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone= 24.07  }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone= 27.78  }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone=32.63  }
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone= 37.52  }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone= 40.14  }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone= 46.77  }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone= 52.60  }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone= 58.24  }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone=0.55  }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone= 0.51  }
+    if ( Total_bouteilles>=300){ frais_zone = 0.49   }
+    break;
+    case 9:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone= 24.42  }
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone=26.00   }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone= 29.89  }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone=35.13  }
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone= 38.45  }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone=  41.26 }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone=47.52   }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone=  54.06 }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone=59.21   }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone=0.47  }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone=0.51   }
+    if ( Total_bouteilles>=300){ frais_zone =  0.50  }
+    break;
+    case 10:
+    if ( Total_bouteilles>=1 && Total_bouteilles <=6 ) {frais_zone= 23.91  }
+    if ( Total_bouteilles >=7 && Total_bouteilles<=12 ) { frais_zone=24.23   }
+    if ( Total_bouteilles>=13 && Total_bouteilles<=24 ) { frais_zone= 27.51  }
+    if ( Total_bouteilles>=25 && Total_bouteilles<=36 ) { frais_zone= 31.45 }
+    if ( Total_bouteilles>=37 && Total_bouteilles<=48) { frais_zone= 35.39  }
+    if ( Total_bouteilles>=49 && Total_bouteilles<=60 ) { frais_zone= 37.18  }
+    if ( Total_bouteilles>=61 && Total_bouteilles<= 72 ) { frais_zone= 42.19  }
+    if ( Total_bouteilles>=73 && Total_bouteilles<=84 ) { frais_zone= 46.48  }
+    if ( Total_bouteilles>=85 && Total_bouteilles<=96) { frais_zone= 49.92  }
+    if ( Total_bouteilles>=96 && Total_bouteilles<200) { frais_zone=46.47  }
+    if ( Total_bouteilles>=200 && Total_bouteilles<300) { frais_zone=0.44  }
+    if ( Total_bouteilles>=300){ frais_zone =  0.41 }
+    break;
+  } 
+      
+      var   CA= ( ( prix_vente * Bouteilles_a_vendre) * Nombre_vente ) - cheque ;
+      var cout_stock =  ( Bouteilles_offertes * prix_achat ) + (Bouteilles_a_vendre * prix_achat_offre );
+      var cout_transport = frais_zone * Nombre_vente ;
+      var charge = cout_stock +  cout_transport + ads ;
+      var marge = CA - charge ;
+      var marque = ( marge / CA) * 100 ;
+
+       var  sBouteilles_a_vendre=Bouteilles_a_vendre*Nombre_vente;
+        var sBouteilles_offertes=Bouteilles_offertes*Nombre_vente;
+       var  sTotal_bouteilles=Total_bouteilles*Nombre_vente;
+
+      document.getElementById('marge').innerHTML = marge.toFixed(2);
+
+    //     let information='';
+    //     information += ` 
+      
+    //       <tr>
+    //         <td>${sBouteilles_a_vendre} bouteilles</td>
+    //          <td>${sBouteilles_offertes} bouteilles</td>
+    //          <td>${CA.toFixed(2)} €</td>
+    //          <td>${sTotal_bouteilles} bouteilles</td>
+    //          <td>${cout_stock.toFixed(2)} €</td>
+    //          <td>${cout_transport.toFixed(2)} €</td>
+    //         <td>${ marge.toFixed(2)} €</td>
+    //         <td>${ marque.toFixed(2)} %</td>
+    //     </tr>
+       
+    // `;
+
+    // document.getElementById('details').innerHTML = information;
+
+    var table = document.getElementsByTagName('table')[0];
+
+                      var newRow = table.insertRow(1);
+                      var cel1 = newRow.insertCell(0);
+                      var cel2 = newRow.insertCell(1);
+                      var cel3 = newRow.insertCell(2);
+                      var cel4 = newRow.insertCell(3);
+                      var cel5 = newRow.insertCell(4);
+                      var cel6 = newRow.insertCell(5);
+                      var cel7 = newRow.insertCell(6);
+                      var cel8 = newRow.insertCell(7);
+
+                      cel1.innerHTML = sBouteilles_a_vendre ;
+                      cel2.innerHTML = sBouteilles_offertes;
+                      cel3.innerHTML = CA.toFixed(2);
+                      cel4.innerHTML = sTotal_bouteilles;
+                      cel5.innerHTML = cout_stock.toFixed(2)  ;
+                      cel6.innerHTML = cout_transport.toFixed(2) ;
+                      cel7.innerHTML = marge.toFixed(2) ;
+                      cel8.innerHTML = marque.toFixed(2) ;
+
+
+      }  
+
+    </script>
+
+  </body>
+</html>
+

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calcul mensualité crédit (taux fixe)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="static/css/bootstrap-3.3.1.min.css" rel="stylesheet">
+    <link href="static/css/font-awesome-4.4.0.min.css" rel="stylesheet">
+    <link href="static/css/custom.css" rel="stylesheet"> 
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href=""><i class="fa fa-calculator"></i> Promo</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href=""> <i class="fa fa-home"></i> Promo Produits Similaires</a></li>
+            <li><a href="index2.html"><i class="fa fa-github-alt"></i> Promo De Différents Produits</a></li>
+            <li><a href="index3.html"><i class="fa fa-github-alt"></i> Calculatrice Pros</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="hidden-xs col-md-12">
+          <h2 class="baseline">Calcul Promo Pavillion Sala</h2>
+          <hr>
+        </div>
+      </div>
+      <form id="calculator-form">
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Prix D'achat</label>
+            <div class="input-group input-group-lg">
+              <select class="form-control" id="prix_achat">
+                <optgroup label="Vin Rouge">
+                    <option value="2.07">Bordeaux</option>
+                    <option value="2.63">Bordeaux supérieur</option>
+                    <option value="4.15">Bordeaux - Réserve</option>
+                    <option value="7.55">St. Emilion Grand Cru</option>
+                    <option value="13.04">Grand Cru Prestige</option>
+                  </optgroup>
+                  <optgroup label="Vin Blanc">
+                    <option value="2.01">Entre-Deux-Mers</option>
+                    <option value="2.03">Bordeaux Sauvignon</option>
+                    <option value="6.87">Bordeaux supérieur</option>                   
+                  </optgroup>
+                  <optgroup label="Vins Rosé">
+                    <option value="2.02">Bordeaux Rosé</option>
+                  </optgroup>
+              </select>
+              <div class="input-group-addon">&euro;</div>
+            </div>           
+          </div>
+         
+          <div class="form-group col-xs-6 col-md-4">
+            <label>Nbrs Bouteilles</label>
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" id="Nbrs_Bouteilles" >
+              <div class="input-group-addon">NBr</div>
+            </div>
+          </div> 
+         
+          
+
+          <div class="form-group col-md-4">
+            <label>Frais de Transport</label>
+            <div class="input-group input-group-lg">
+              <select class="form-control" id="Frais_Transport">
+                    <option value="24.60">Entre  6  Bts - 72  Bts</option>
+                    <option value="65.00">Entre 72  Bts - 120 Bts</option>
+                    <option value="120.00">Entre 120 Bts - 300 Bts</option>
+                    <option value="180.00">Entre 300 Bts - 600 Bts</option>
+                    <option value="220.00"> 600 Bts + </option>
+                 
+              </select>
+              <div class="input-group-addon">&euro;</div>
+            </div>           
+          </div>
+
+
+        </div> 
+        <div class="form-group col-xs-12">
+          <button type="button" class="btn btn-default btn-lg" onclick="promo();"><i class="fa fa-calculator"></i> Calculer</button>
+        </div>
+        </form>
+        <br><br><br><br><br><br><br>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+          <h3 class="panel-title">Résultat</h3>
+          </div>
+          <div class="panel-body">
+          <p><b>Totale de Vente:</b> <span id="somme"></span>&euro;</p> 
+        </div>
+
+      </div>
+     
+  <div id="payementList">
+  <table class="table mt-3 text-center">
+      <thead>
+          <tr>
+            <th>Prix D'achat</th>
+            <th>Prix De Vente</th>
+            <th>Nbrs de Bouteilles </th>
+            <th>Frais de Transport</th>
+            <th>Totale</th>
+          </tr>
+      </thead>
+      <tbody id="details">
+      </tbody> 
+  </table>
+</div> 
+
+    </div> <!-- /container -->
+    <script src="static/js/jquery-1.11.0.min.js"></script>
+    <script src="static/js/bootstrap-3.3.1.min.js"></script>
+    <script src="static/js/jquery.table2execl.js"></script>
+    <script>
+function promo(){
+    
+         var  prix_vente=0;
+        
+         var  prix_achat=Number(document.getElementById('prix_achat').value);
+         var  Nbrs_Bouteilles=Number(document.getElementById('Nbrs_Bouteilles').value);
+         var  Frais_Transport=Number (document.getElementById('Frais_Transport').value) ;
+    
+       
+
+switch(prix_achat)
+  {
+    case 2.07:
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilles <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles >=600 ) { prix_vente=3.10 }
+    
+
+    break;
+    case 2.63:
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilles <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles >=600 ) { prix_vente=3.10 }
+
+
+    break;
+    case 4.15:
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilles <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles>=600 ) { prix_vente=3.10 }
+
+    break;
+    case 7.55:
+    
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilles <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles >=600 ) { prix_vente=3.10 }
+
+    break;
+    case 13.04:
+
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilles <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles >=600 ) { prix_vente=3.10 }
+
+    break;
+    case 2.01:
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilless <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles >=600 ) { prix_vente=3.10 }
+
+    break;
+    case 2.03:
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilles <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles >=600 ) { prix_vente=3.10 }
+
+    break;
+    case 6.87:
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilles <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles >=600 ) { prix_vente=3.10 }
+    break;
+    case 2.02:
+    if ( Nbrs_Bouteilles>=72 && Nbrs_Bouteilles <=119 ) {prix_vente=3.65 }
+    if ( Nbrs_Bouteilles >=120 && Nbrs_Bouteilles<=299 ) { prix_vente=3.50 }
+    if ( Nbrs_Bouteilles>=300 && Nbrs_Bouteilles <= 599) {prix_vente=3.25 }
+    if ( Nbrs_Bouteilles >=600 ) { prix_vente=3.10 }
+    break;
+
+
+   
+  } 
+       
+      var somme= ( prix_vente * Nbrs_Bouteilles ) + Frais_Transport ;
+      document.getElementById('somme').innerHTML = somme.toFixed(2);
+       
+      
+
+
+
+      var table = document.getElementsByTagName('table')[0];
+
+var newRow = table.insertRow(1);
+var cel1 = newRow.insertCell(0);
+var cel2 = newRow.insertCell(1);
+var cel3 = newRow.insertCell(2);
+var cel4 = newRow.insertCell(3);
+var cel5 = newRow.insertCell(4);
+
+cel1.innerHTML = prix_achat ;
+cel2.innerHTML = prix_vente;
+cel3.innerHTML = Nbrs_Bouteilles;
+cel4.innerHTML = Frais_Transport;
+cel5.innerHTML = somme.toFixed(2);
+
+
+}
+    </script>
+
+  </body>
+</html>
+
