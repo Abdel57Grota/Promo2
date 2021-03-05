@@ -126,6 +126,7 @@
             <th>Frais de Transport</th>
             <th>Totale</th>
             <th>Marge</th>
+            <th>Marque</th>
           </tr>
       </thead>
       <tbody id="details">
@@ -387,7 +388,7 @@ switch(prix_achat)
 
       var marge = somme - x ;
        
-
+      var marque = ( marge / somme) * 100 ;
 
 
       var table = document.getElementsByTagName('table')[0];
@@ -400,6 +401,7 @@ var cel4 = newRow.insertCell(3);
 var cel5 = newRow.insertCell(4);
 var cel6 = newRow.insertCell(5);
 var cel7 = newRow.insertCell(6);
+var cel8 = newRow.insertCell(7);
 
 cel1.innerHTML = produit ;
 cel2.innerHTML = prix_achat.toFixed(2) ;
@@ -408,6 +410,7 @@ cel4.innerHTML = Nbrs_Bouteilles;
 cel5.innerHTML = frais_zone.toFixed(2);
 cel6.innerHTML = somme.toFixed(2);
 cel7.innerHTML = marge.toFixed(2);
+cel8.innerHTML = marque.toFixed(2);
 
 
 }
